@@ -28,7 +28,7 @@ router.get('/auth/github/callback', passport.authenticate(`github`, {failureRedi
   res.redirect(`/success`)
 })
 
-router.get('/oauth2/redirect/google', 
+router.get('/oauth2/redirect/google/', 
   passport.authenticate('google', { failureRedirect: '/failure'}),
   function(req, res) {
     // Successful authentication, redirect home.
