@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Article Details
+        </h1>
+    </header>
+    <main>
+        <h2><%= article.title %></h2>
+        <h3><%= article.description %></h3>
+        <h4><%= article.author %></h4>
+        <h5><%= article.likes ? article.likes: 0 %></h5>
+        <a href="/articles/<%=article.slug %>/likes">
+            <button>Likes</button>
+        </a>
+        <a href="/articles/<%= article.slug %>/edit">
+            <button>Edit</button>
+        </a>
+        <a href="/articles/<%= article.slug %>/delete">
+            <button>Delete</button>
+        </a>
+        <div>
+        <form action="/articles/<%= article.slug %>/comments" method="post">
+            <textarea name="content" cols="30" rows="10">
+            </textarea>
+            <input type="submit" placeholder="comment">
+        </form>
+    </div>
+    <div>
+        <% article.comments.forEach(comment=>{ %>
+            <div>
+                <p><%= comment.content %></p>
+            </div>
+            <a href="/comments/<%= comment._id %>/edit">
+                <button>Edit</button>
+            </a>
+            <a href="/comments/<%= comment._id %>/delete">
+                <button>Delete</button>
+            </a>
+       <% }) %>
+    </div>
+    </main>
+</body>
+</html>
