@@ -14,9 +14,9 @@ passport.use(new GoogleStrategy({
     console.log(profile, "PROFILE")
     var profileData = {
         name: profile.displayName,
-        email: profile.email
+        email: profile._json.email
     }
-    User.findOne({username: profile.displayName}, (err, user) => {
+    User.findOne({email: profile._json.email}, (err, user) => {
         if(err) return cb(err)
         if(!user){
             User.create(profileData, (err, createdUser) => {
