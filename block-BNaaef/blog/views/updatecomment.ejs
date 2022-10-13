@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>
+            update comment
+        </h1>
+    </header>
+    <main>
+        <div>
+            <form action="/comments/<%= comment.id %>/edit" method="post">
+                <textarea name="content" cols="30" rows="10"> <%= comment.content %>
+                </textarea>
+                <input type="submit" placeholder="comment">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
